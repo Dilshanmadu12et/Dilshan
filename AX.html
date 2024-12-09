@@ -1,0 +1,170 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Powered Search Engine</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>AI-Powered Search Engine</h1>
+    <p>Search and access your favorite platforms quickly!</p>
+    <div class="search-bar">
+      <input type="text" id="searchQuery" placeholder="Enter your search...">
+      <button id="searchBtn">Search</button>
+    </div>
+  </header>
+  <main>
+    <div class="platforms">
+      <button class="platform-btn" onclick="searchOnPlatform('YouTube')">
+        <img src="https://img.icons8.com/color/96/000000/youtube-play.png" alt="YouTube">
+        YouTube
+      </button>
+      <button class="platform-btn" onclick="searchOnPlatform('Chrome')">
+        <img src="https://img.icons8.com/color/96/000000/chrome.png" alt="Chrome">
+        Chrome
+      </button>
+      <button class="platform-btn" onclick="searchOnPlatform('Google Maps')">
+        <img src="https://img.icons8.com/color/96/000000/google-maps.png" alt="Google Maps">
+        Google Maps
+      </button>
+      <button class="platform-btn" onclick="searchOnPlatform('Opera')">
+        <img src="https://img.icons8.com/color/96/000000/opera.png" alt="Opera">
+        Opera
+      </button>
+    </div>
+  </main>
+  <footer>
+    <p>Powered by AI Technology | Intelligent Search</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html><style>body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+  background-attachment: fixed;
+  color: #333;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Adding animated particles for an AI-inspired effect */
+body::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+  animation: rotatePattern 10s linear infinite;
+  z-index: 1;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@keyframes rotatePattern {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Header and Footer modifications */
+header {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 20px;
+  z-index: 10;
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+header p {
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+
+footer {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.9rem;
+  z-index: 10;
+}
+
+/* Buttons and app cards with glowing effect */
+.platform-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  width: 150px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.platform-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(63, 94, 251, 0.6), 0 -4px 15px rgba(252, 70, 107, 0.6);
+}
+
+.platform-btn img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}</style><script>// Search function for specific platforms
+function searchOnPlatform(platform) {
+  const query = document.getElementById('searchQuery').value.trim();
+  if (!query) {
+    alert('Please enter a search query!');
+    return;
+  }
+
+  let url = '';
+  switch (platform) {
+    case 'YouTube':
+      url = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+      break;
+    case 'Chrome':
+      url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+      break;
+    case 'Google Maps':
+      url = `https://www.google.com/maps/search/${encodeURIComponent(query)}`;
+      break;
+    case 'Opera':
+      url = `https://www.google.com/search?q=${encodeURIComponent(query)}+Opera`;
+      break;
+    default:
+      alert('Platform not supported.');
+      return;
+  }
+
+  window.open(url, '_blank');
+}
+
+// General search button
+document.getElementById('searchBtn').addEventListener('click', () => {
+  const query = document.getElementById('searchQuery').value.trim();
+  if (query) {
+    window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
+  } else {
+    alert('Please enter a search query!');
+  }
+});</script>
